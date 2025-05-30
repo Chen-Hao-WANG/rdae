@@ -5,8 +5,8 @@ tensorboard --logdir /home/howard/rdae/output_folder/summaries
 # Training Command
 ```
 python main.py
-    --dataPath /home/howard/rdae/data_folder
-    --outputPath /home/howard/rdae/output_folder
+    --dataPath ./data_folder
+    --outputPath ./output_folder
     --model AE
     --seqLen 1
     --inpChannel 3
@@ -55,7 +55,7 @@ python main.py \
     --batchSize 1 \
     --phase predict \
     --isRefine \
-    --pretrainPath /home/howard/rdae/output_folder/model_weights/AE_best.weights.h5
+    --pretrainPath ./output_folder/model_weights/AE_best.weights.h5
 ```
 ```
 python main.py \
@@ -69,7 +69,7 @@ python main.py \
     --batchSize 4  # <--- 預測時也可以適當增加 batchSize 以加快速度，但通常不需要像訓練時那麼大
     --phase predict \
     --isRefine \
-    --pretrainPath /your/actual/output_folder/model_weights/AE_best.weights.h5 \
+    --pretrainPath ./output_folder/model_weights/AE_best.weights.h5 \
     --gpuId 0
 ```
 

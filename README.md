@@ -4,7 +4,7 @@ source tf-gpu/bin/activate
 tensorboard --logdir ./rdae/output_folder/summaries
 # Training Command
 ```
-python main.py --dataPath ./data_folder --outputPath ./output_folder --model AE --seqLen 1 --inpChannel 3 --originalH 768 --originalW 1024 --nepoch 50 --batchSize 2 --learningRate 1e-4 --saveImgFreq 50 --saveModelFreq 100 --store
+python main.py --dataPath ./data_folder --outputPath ./output_folder --model AE --seqLen 1 --inpChannel 3 --originalH 768 --originalW 1024 --nepoch 5 --batchSize 1 --learningRate 1e-4 --saveImgFreq 10 --saveModelFreq 20 --store
 
 ```
 ```

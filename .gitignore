@@ -1,0 +1,35 @@
+# Data and output directories
+data_folder/
+output_folder/
+predict_results/
+predict_results_png_target/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+tf-gpu/
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model weights and checkpoints
+*.h5
+*.weights
+*.ckpt
+
+# Logs
+*.log

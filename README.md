@@ -1,23 +1,11 @@
 # src
 source tf-gpu/bin/activate
 # tensor board
-tensorboard --logdir /home/howard/rdae/output_folder/summaries
+tensorboard --logdir ./rdae/output_folder/summaries
 # Training Command
 ```
-python main.py
-    --dataPath ./data_folder
-    --outputPath ./output_folder
-    --model AE
-    --seqLen 1
-    --inpChannel 3
-    --originalH 768
-    --originalW 1024
-    --nepoch 50
-    --batchSize 1
-    --learningRate 1e-4
-    --saveImgFreq 5
-    --saveModelFreq 10
-    --store
+python main.py --dataPath ./data_folder --outputPath ./output_folder --model AE --seqLen 1 --inpChannel 3 --originalH 768 --originalW 1024 --nepoch 50 --batchSize 2 --learningRate 1e-4 --saveImgFreq 50 --saveModelFreq 100 --store
+
 ```
 ```
 python main.py \
@@ -29,10 +17,10 @@ python main.py \
     --originalH 768 \
     --originalW 1024 \
     --nepoch 50 \
-    --batchSize 8  # <--- 建議從這個值開始嘗試，可以根據 VRAM 使用情況調整 (例如 4, 8, 16, 32)
+    --batchSize 8  
     --learningRate 1e-4 \
-    --saveImgFreq 50   # <--- 配合 batchSize 增加，可以適當增加儲存頻率，避免過於頻繁
-    --saveModelFreq 100  # <--- 同上
+    --saveImgFreq 50   
+    --saveModelFreq 100  
     --store \
     --gpuId 0 \
     --manualSeed 42 \
@@ -40,7 +28,7 @@ python main.py \
     --earlyStoppingMinDelta 0.0001 \
     --ws 0.8 \
     --wg 0.1 \
-    --wt 0.1 # 如果是 AE 模型且 seqLen=1，wt 參數不會產生作用
+    --wt 0.1 
 ```
 # Prediction Command
 ```

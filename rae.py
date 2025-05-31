@@ -224,13 +224,13 @@ class RAE(tf.keras.Model):
             file_prefix = f"datasample{global_iter_idx}" 
             if batch_size > 1: file_prefix += f"_batchidx{i}"
             try:
-                imageio.imwrite(os.path.join(imgs_folder, f'{file_prefix}_input_noisy.png'), noisy_to_save_uint8)
+                #imageio.imwrite(os.path.join(imgs_folder, f'{file_prefix}_input_noisy.png'), noisy_to_save_uint8)
                 imageio.imwrite(os.path.join(imgs_folder, f'{file_prefix}_output_denoised.png'), denoised_to_save_uint8)
-                imageio.imwrite(os.path.join(imgs_folder, f'{file_prefix}_target_clean.png'), clean_to_save_uint8)
+                #imageio.imwrite(os.path.join(imgs_folder, f'{file_prefix}_target_clean.png'), clean_to_save_uint8)
                 if self.phase == 'TRAIN' and self.train_writer is not None and i == 0: 
                     with self.train_writer.as_default(step=self.optimizer.iterations):
-                        tf.summary.image(f"TrainingEpoch{epoch}/InputNoisy_Iter{global_iter_idx}", tf.expand_dims(noisy_to_save_uint8, 0), max_outputs=1)
+                        #tf.summary.image(f"TrainingEpoch{epoch}/InputNoisy_Iter{global_iter_idx}", tf.expand_dims(noisy_to_save_uint8, 0), max_outputs=1)
                         tf.summary.image(f"TrainingEpoch{epoch}/OutputDenoised_Iter{global_iter_idx}", tf.expand_dims(denoised_to_save_uint8, 0), max_outputs=1)
-                        tf.summary.image(f"TrainingEpoch{epoch}/TargetClean_Iter{global_iter_idx}", tf.expand_dims(clean_to_save_uint8, 0), max_outputs=1)
+                        #tf.summary.image(f"TrainingEpoch{epoch}/TargetClean_Iter{global_iter_idx}", tf.expand_dims(clean_to_save_uint8, 0), max_outputs=1)
             except Exception as e: print(f"保存圖像或寫入TensorBoard時出錯 (iter {global_iter_idx}, batch_idx {i}): {e}")
         if batch_size > 0: print(f"已將比較圖像保存到 {imgs_folder} (全局迭代 {global_iter_idx})")

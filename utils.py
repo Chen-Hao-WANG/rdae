@@ -96,27 +96,27 @@ def create_decoder_model(skip_connection_shapes, final_output_channels=3, name="
     leaky_relu = tf.keras.layers.LeakyReLU(negative_slope=0.2)
     
     # 將所有 padding="SAME" 改為 padding="same"
-    up1 = tf.keras.layers.UpSampling2D(size=2, interpolation='nearest')(input_net6_h)
+    up1 = tf.keras.layers.UpSampling2D(size=2, interpolation='bilinear')(input_net6_h)
     concat1 = tf.keras.layers.Concatenate()([up1, input_net5_h])
     dec_conv1_1 = tf.keras.layers.Conv2D(filters=76, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_1_1")(concat1)
     dec_conv1_2 = tf.keras.layers.Conv2D(filters=76, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_1_2")(dec_conv1_1)
 
-    up2 = tf.keras.layers.UpSampling2D(size=2, interpolation='nearest')(dec_conv1_2)
+    up2 = tf.keras.layers.UpSampling2D(size=2, interpolation='bilinear')(dec_conv1_2)
     concat2 = tf.keras.layers.Concatenate()([up2, input_net4_h])
     dec_conv2_1 = tf.keras.layers.Conv2D(filters=57, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_2_1")(concat2)
     dec_conv2_2 = tf.keras.layers.Conv2D(filters=57, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_2_2")(dec_conv2_1)
 
-    up3 = tf.keras.layers.UpSampling2D(size=2, interpolation='nearest')(dec_conv2_2)
+    up3 = tf.keras.layers.UpSampling2D(size=2, interpolation='bilinear')(dec_conv2_2)
     concat3 = tf.keras.layers.Concatenate()([up3, input_net3_h])
     dec_conv3_1 = tf.keras.layers.Conv2D(filters=43, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_3_1")(concat3)
     dec_conv3_2 = tf.keras.layers.Conv2D(filters=43, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_3_2")(dec_conv3_1)
 
-    up4 = tf.keras.layers.UpSampling2D(size=2, interpolation='nearest')(dec_conv3_2)
+    up4 = tf.keras.layers.UpSampling2D(size=2, interpolation='bilinear')(dec_conv3_2)
     concat4 = tf.keras.layers.Concatenate()([up4, input_net2_h])
     dec_conv4_1 = tf.keras.layers.Conv2D(filters=32, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_4_1")(concat4)
     dec_conv4_2 = tf.keras.layers.Conv2D(filters=32, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_4_2")(dec_conv4_1)
 
-    up5 = tf.keras.layers.UpSampling2D(size=2, interpolation='nearest')(dec_conv4_2)
+    up5 = tf.keras.layers.UpSampling2D(size=2, interpolation='bilinear')(dec_conv4_2)
     concat5 = tf.keras.layers.Concatenate()([up5, input_net1_h])
     dec_conv5_1 = tf.keras.layers.Conv2D(filters=128, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_5_1")(concat5)
     dec_conv5_2 = tf.keras.layers.Conv2D(filters=64, kernel_size=3, padding="same", activation=leaky_relu, name="Dec_conv_5_2")(dec_conv5_1)

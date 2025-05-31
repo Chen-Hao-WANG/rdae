@@ -11,7 +11,9 @@ import random
 
 from rae import RAE 
 import dataLoader 
-
+# main.py 開頭
+import tensorflow as tf
+tf.keras.mixed_precision.set_global_policy('mixed_float16')
 parser = argparse.ArgumentParser(description="TensorFlow 2.x RAE Model Training for Denoising")
 parser.add_argument('--model', type=str, default='AE', choices=['AE', 'RAE'], help='Model type: AE or RAE')
 parser.add_argument('--nepoch', type=int, default=50, help='Number of epochs for training')

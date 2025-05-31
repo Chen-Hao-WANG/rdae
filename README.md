@@ -61,3 +61,25 @@ python main.py \
     --gpuId 0
 ```
 
+# check pipline
+```
+python check_pipeline.py \
+    --dataPath ./data_folder \
+    --outputDir ./output_folder \
+    --originalH 768 \
+    --originalW 1024 \
+    --inpChannel 3 \
+    --batchSize 1 \
+    --pretrainPath ./output_folder/model_weights/AE_best.weights.h5
+
+```
+
+# check OOM
+```
+python check_oom.py
+```
+
+# increase mem設定 TensorFlow GPU 分配器環境變數
+```
+export TF_GPU_ALLOCATOR=cuda_malloc_async
+```
